@@ -1,13 +1,13 @@
-package com.openclassrooms.notes.noteviewmodel
+package com.openclassrooms.notes.ui
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.openclassrooms.notes.data.model.Note
 
-class NotesViewModel : ViewModel() {
-    private val noteLiveData = MutableLiveData<Note>()
-    val note: LiveData<Note> get() = noteLiveData
+class MainViewModel : ViewModel() {
+    private val notesLiveData = MutableLiveData<Note>()
+    val user: LiveData<Note> get() = notesLiveData
 
     init {
         // trigger user load.
