@@ -1,4 +1,3 @@
 package com.openclassrooms.notes.data
 
-class Note {
-}
+class Note (title:String,body:String)
