@@ -1,7 +1,7 @@
 package com.openclassrooms.notes.widget
 
 import androidx.recyclerview.widget.RecyclerView
-import com.openclassrooms.notes.data.Note
+import com.openclassrooms.notes.data.model.Note
 import com.openclassrooms.notes.databinding.NoteBinding
 
 /**

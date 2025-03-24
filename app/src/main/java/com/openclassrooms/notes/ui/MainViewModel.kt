@@ -4,7 +4,9 @@ import androidx.lifecycle.ViewModel
 import com.openclassrooms.notes.data.model.Note
 import com.openclassrooms.notes.data.repository.NotesRepository
 import kotlinx.coroutines.flow.Flow
+import dagger.hilt.android.lifecycle.HiltViewModel
 
+@HiltViewModel
 class MainViewModel : ViewModel() {
 
     private val notesRepository = NotesRepository()

@@ -10,11 +10,13 @@ import com.openclassrooms.notes.data.model.Note
 import com.openclassrooms.notes.databinding.ActivityMainBinding
 import com.openclassrooms.notes.widget.NoteItemDecoration
 import com.openclassrooms.notes.widget.NotesAdapter
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
 /**
  * The main activity for the app.
  */
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     /**
