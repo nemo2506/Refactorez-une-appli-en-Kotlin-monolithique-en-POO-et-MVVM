@@ -1,8 +1,8 @@
-package com.openclassrooms.notes.repository
+package com.openclassrooms.notes.data.repository
 
-import com.openclassrooms.notes.data.Note
-import com.openclassrooms.notes.service.LocalNotesApiService
-import com.openclassrooms.notes.service.NotesApiService
+import com.openclassrooms.notes.data.model.Note
+import com.openclassrooms.notes.data.service.LocalNotesApiService
+import com.openclassrooms.notes.data.service.NotesApiService
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
