@@ -1,11 +1,12 @@
-package com.openclassrooms.notes
+package com.openclassrooms.notes.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.openclassrooms.notes.R
 import com.openclassrooms.notes.databinding.ActivityMainBinding
-import com.openclassrooms.notes.data.repository.NotesRepository
 import com.openclassrooms.notes.widget.NoteItemDecoration
 import com.openclassrooms.notes.widget.NotesAdapter
 import kotlinx.coroutines.launch
@@ -19,29 +20,32 @@ class MainActivity : AppCompatActivity() {
      * The binding for the main layout.
      */
     private lateinit var binding: ActivityMainBinding
-
+    private lateinit var viewModel: MainViewModel
     private val notesAdapter = NotesAdapter(emptyList())
-
-    private val notesRepository = NotesRepository()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupViewModel()
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         initRecyclerView()
         initFABButton()
         collectNotes()
     }
 
+    private fun setupViewModel() {
+        viewModel = ViewModelProvider(this)[MainViewModel::class.java]
+//        viewModel.tasks.observe(this, ::updateTaskList)
+    }
+
     /**
-     * Collects notes from the repository and updates the adapter.
+     * Observe notes from ViewModel
      */
     private fun collectNotes() {
         lifecycleScope.launch {
-            notesRepository.notes.collect {
-                notesAdapter.updateNotes(it)
+            viewModel.notes.collect { notesList ->
+                notesAdapter.updateNotes(notesList)
             }
         }
     }
@@ -70,10 +74,7 @@ class MainActivity : AppCompatActivity() {
                     resources.getInteger(R.integer.span_count)
                 )
             )
-
             adapter = notesAdapter
         }
-
     }
-
 }
