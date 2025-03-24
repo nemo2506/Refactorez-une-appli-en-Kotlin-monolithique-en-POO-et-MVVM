@@ -4,10 +4,13 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.openclassrooms.notes.data.model.Note
+import com.openclassrooms.notes.data.repository.NotesRepository
+import kotlinx.coroutines.flow.Flow
 
 class MainViewModel : ViewModel() {
-    private val notesLiveData = MutableLiveData<Note>()
-    val user: LiveData<Note> get() = notesLiveData
+//    private val notesLiveData = MutableLiveData<Note>()
+//    val notes: LiveData<Note> get() = notesLiveData
+    val notes: Flow<List<Note>> = NotesRepository().notes
 
     init {
         // trigger user load.
