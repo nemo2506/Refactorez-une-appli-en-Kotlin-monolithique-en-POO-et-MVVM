@@ -41,13 +41,17 @@ class MainActivity : AppCompatActivity() {
     }
 
     /**
-     * Observe notes from ViewModel
+     * Initializes the RecyclerView.
      */
-    private fun collectNotes() {
-        lifecycleScope.launch {
-            viewModel.notes.collect { notesList ->
-                notesAdapter.updateNotes(notesList)
-            }
+    private fun initRecyclerView() {
+        with(binding.recycler) {
+            addItemDecoration(
+                NoteItemDecoration(
+                    resources.getDimensionPixelSize(R.dimen.default_margin),
+                    resources.getInteger(R.integer.span_count)
+                )
+            )
+            adapter = notesAdapter
         }
     }
 
@@ -65,20 +69,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     /**
-     * Initializes the RecyclerView.
+     * Observe notes from ViewModel
      */
-    private fun initRecyclerView() {
-        with(binding.recycler) {
-            addItemDecoration(
-                NoteItemDecoration(
-                    resources.getDimensionPixelSize(R.dimen.default_margin),
-                    resources.getInteger(R.integer.span_count)
-                )
-            )
-            adapter = notesAdapter
+    private fun collectNotes() {
+        lifecycleScope.launch {
+            viewModel.notes.collect { notesList ->
+                notesAdapter.updateNotes(notesList)
+            }
         }
     }
-
 //    private fun updateNoteList(notes: List<Note>) {
 //        adapter.submitList(notes)
 //    }
