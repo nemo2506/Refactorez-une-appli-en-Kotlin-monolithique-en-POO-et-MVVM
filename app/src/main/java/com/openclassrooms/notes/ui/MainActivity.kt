@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.openclassrooms.notes.R
+import com.openclassrooms.notes.data.model.Note
 import com.openclassrooms.notes.databinding.ActivityMainBinding
 import com.openclassrooms.notes.widget.NoteItemDecoration
 import com.openclassrooms.notes.widget.NotesAdapter
@@ -36,7 +37,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupViewModel() {
         viewModel = ViewModelProvider(this)[MainViewModel::class.java]
-//        viewModel.tasks.observe(this, ::updateTaskList)
+//        viewModel.tasks.observe(this, ::updateNoteList)
     }
 
     /**
@@ -77,4 +78,9 @@ class MainActivity : AppCompatActivity() {
             adapter = notesAdapter
         }
     }
+
+//    private fun updateNoteList(tasks: List<Note>) {
+//        adapter.submitList(tasks)
+//    }
+
 }
