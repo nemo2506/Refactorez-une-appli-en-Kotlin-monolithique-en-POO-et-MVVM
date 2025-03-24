@@ -79,7 +79,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-//    private fun updateNoteList(tasks: List<Note>) {
+//    private fun updateNoteList(notes: List<Note>) {
 //        adapter.submitList(notes)
 //    }
 
