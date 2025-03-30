@@ -1,13 +1,9 @@
 package com.openclassrooms.notes
 
-import android.util.Log
 import com.openclassrooms.notes.data.model.Note
 import com.openclassrooms.notes.data.repository.NotesRepository
 import com.openclassrooms.notes.data.service.LocalNotesApiService
 import junit.framework.TestCase.assertEquals
-import junit.framework.TestCase.assertNotNull
-import junit.framework.TestCase.assertNotSame
-import junit.framework.TestCase.assertSame
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.flow.first
 import org.junit.Before
