@@ -1,7 +1,5 @@
 package com.openclassrooms.notes.ui.widget
 
-import android.annotation.SuppressLint
-import com.openclassrooms.notes.widget.NoteViewHolder
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
