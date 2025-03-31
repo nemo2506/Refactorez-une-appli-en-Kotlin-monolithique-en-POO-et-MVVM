@@ -12,13 +12,13 @@ class MainViewModel : ViewModel() {
     private val notesRepository = NotesRepository()
     val notes: Flow<List<Note>> = notesRepository.notes
 
-    init {
-        collectNotes()
-    }
+//    init {
+//        collectNotes()
+//    }
 
     /**
      * Collects notes from the repository and updates the state.
      */
-    private fun collectNotes() {
-    }
+//    private fun collectNotes() {
+//    }
 }
